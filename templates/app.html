@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Student Database</title>
+</head>
+
+<body>
+
+<h2>Add Student</h2>
+
+<form method="POST">
+
+Name:<br>
+<input type="text" name="name"><br><br>
+
+SAPID:<br>
+<input type="text" name="sapid"><br><br>
+
+Age:<br>
+<input type="number" name="age"><br><br>
+
+Marks:<br>
+<input type="number" name="marks"><br><br>
+
+<button type="submit">Save</button>
+
+</form>
+
+<hr>
+
+<h2>Search Student</h2>
+
+<form action="/search" method="POST">
+
+<input type="text" name="search_name" placeholder="Enter name">
+
+<button type="submit">Search</button>
+
+</form>
+
+{% if data %}
+
+<h3>Results</h3>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>SAPID</th>
+<th>Age</th>
+<th>Marks</th>
+</tr>
+
+{% for row in data %}
+
+<tr>
+<td>{{row[0]}}</td>
+<td>{{row[1]}}</td>
+<td>{{row[2]}}</td>
+<td>{{row[3]}}</td>
+<td>{{row[4]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endif %}
+
+</body>
+
+</html>
